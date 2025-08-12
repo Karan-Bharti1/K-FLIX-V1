@@ -9,8 +9,12 @@ import Shimmer from "./Shimmer";
 import usePopular from "../hooks/usePopular";
 import useTopRated from "../hooks/useTopRated";
 import useUpcoming from "../hooks/useUpcoming";
+import useOnline from "../hooks/useOnlineStatus";
+import OnlineStatusUpdate from "./OnlineStatusUpdate";
 
 const Browse = () => {
+ const status= useOnline()
+ 
 useNowPlaying()
 usePopular()
 useTopRated()
@@ -25,7 +29,12 @@ useUpcoming()
     !nowPlayingMovies||!popular|| !topRated || !upcoming
 
   if (isLoading) return <Shimmer />;
-
+ if (status === false)
+    return (
+      <>
+        <OnlineStatusUpdate />
+      </>
+    );
   return (
     <div className="bg-black">
       <Header isLogged={true} isMoviePlayer={false} />

@@ -13,6 +13,7 @@ const useMoviePlayer=(id)=>{
       API_OPTIONS
     );
     const json = await data.json();
+    console.log(json)
     const trailer = json?.results?.find(
       (m) => m?.type === "Trailer" || m?.type === "Teaser"
     );

@@ -11,8 +11,12 @@ import { auth } from "../utils/firebase";
 
 import { useDispatch } from "react-redux";
 import { addUser } from "../utils/userSlice";
+import useOnline from "../hooks/useOnlineStatus";
+import OnlineStatusUpdate from "./OnlineStatusUpdate";
 const Login = () => {
   const [isSignIn, setIsSignIn] = useState(true);
+  const status=useOnline()
+  
   const email = useRef(null);
   const password = useRef(null);
   const name = useRef(null);
@@ -77,6 +81,12 @@ const Login = () => {
   const toggleSignInForm = () => {
     setIsSignIn(!isSignIn);
   };
+  if(status === false)
+   return (
+      <>
+        <OnlineStatusUpdate />
+      </>
+    );
   return (
     <>
       <div className="absolute w-full h-screen z-0">

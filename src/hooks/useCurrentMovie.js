@@ -15,6 +15,7 @@ const useCurrentMovie = (id) => {
      API_OPTIONS
     );
     const json = await data.json();
+    console.log(json)
 
     dispatch(addCurrentMovie(json));
   };

@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import Header from "./Header";
 import { useParams } from "react-router-dom";
 import useMoviePlayer from "../utils/useMoviePlayer";
@@ -6,19 +6,29 @@ import { useSelector } from "react-redux";
 import Shimmer from "../components/Shimmer";
 import useCurrentMovie from "../hooks/useCurrentMovie";
 import { POSTER_URL } from "../utils/url";
+import useOnline from "../hooks/useOnlineStatus";
+import OnlineStatusUpdate from "./OnlineStatusUpdate";
 
 const MoviePlayer = () => {
   const { movieId } = useParams();
+  
   useMoviePlayer(movieId);
   useCurrentMovie(movieId);
-
+console.log(movieId)
   const [play, setPlay] = useState(false);
-
+const status=useOnline()
   const currentMovieTeaser = useSelector((state) => state?.movie?.currentTrailer);
   const currentMovie = useSelector((state) => state?.movie?.currentMovie);
 
   if (!currentMovie || !currentMovieTeaser) return <Shimmer />;
 
+
+  if (status === false)
+    return (
+      <>
+        <OnlineStatusUpdate />
+      </>
+    );
   const {
     title,
     tagline,
