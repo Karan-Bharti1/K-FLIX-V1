@@ -8,7 +8,7 @@ import { auth } from "../utils/firebase";
 import { toggleGPTSearchView } from "../utils/gptSlice";
 import lang, { SUPPORTED_LANGUAGES } from "../utils/languageConstants";
 import { updateLanguage } from "../utils/languageSlice";
-import { addCurrentMovie } from "../utils/movieSlice";
+import { addCurrentMovie, addMoviePlayer } from "../utils/movieSlice";
 
 const Header = ({ isLogged, isMoviePlayer, movieId }) => {
   const navigate = useNavigate();
@@ -49,7 +49,7 @@ const Header = ({ isLogged, isMoviePlayer, movieId }) => {
   };
   return (
     <div className="absolute md:px-8 py-2 bg-gradient-to-b from-black  z-100 w-screen flex flex-col sm:flex-row md:flex-row md:justify-between ">
-      <h1 className="text-red-500 text-5xl  w-48 md:ml-16 lg:ml-16 mx-auto m-4 font-bold  text-center">
+      <h1 className="text-red-500 text-5xl  w-48 md:ml-16 lg:ml-16 mx-auto m-4 font-bold shadow-lg  text-center">
         K-Flix
       </h1>
       {isLogged && (
@@ -74,7 +74,9 @@ const Header = ({ isLogged, isMoviePlayer, movieId }) => {
               {!showGpt ? lang[language].gptSearch : lang[language].browse}
             </button>
           )}
-      { isMoviePlayer &&   <Link onClick={()=>dispatch(addCurrentMovie(null))} to="/browse" className="rounded-lg bg-red-500/50 my-1 mx-1 p-[5px]  sm:my-4 sm:mx-2  sm:p-2  md:my-4 md:mx-2 py-0 md:p-2   font-semibold cursor-pointer">Browse</Link>}
+      { isMoviePlayer &&   <Link onClick={()=>{dispatch(addCurrentMovie(null))
+        dispatch(addMoviePlayer(null))
+      }} to="/browse" className="rounded-lg bg-red-500/50 my-1 mx-1 p-[5px]  sm:my-4 sm:mx-2  sm:p-2  md:my-4 md:mx-2 py-0 md:p-2   font-semibold cursor-pointer">Browse</Link>}
           <button
             className="font-medium rounded-lg bg-red-500/50 my-1 mx-1 p-[5px] sm:my-4 sm:mx-2  sm:p-2  md:my-4 md:mx-2 py-0 md:p-2 sm:font-semibold  md:font-semibold cursor-pointer"
             onClick={handleSignout}

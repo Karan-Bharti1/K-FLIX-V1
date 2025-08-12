@@ -81,7 +81,7 @@ const Login = () => {
     <>
       <div className="absolute w-full h-screen z-0">
         <img
-          className="w-full h-full object-cover bg-center opacity-80"
+          className="w-full h-full object-cover bg-center opacity-90"
           src={GPT_SEARCH_URL}
           alt="Background"
         />
