@@ -11,7 +11,7 @@ const VideoList = ({ title, movies }) => {
     <div className="flex w-full">
        
    {movies?.map((movie) => (
-      <MovieCard key={movie?.id} posterPath={movie?.poster_path} />
+      <MovieCard key={movie?.id} posterPath={movie?.poster_path} movieId={movie?.id} />
     ))}
   
     </div>
