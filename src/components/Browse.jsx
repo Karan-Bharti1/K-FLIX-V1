@@ -28,7 +28,7 @@ useUpcoming()
 
   return (
     <div className="bg-black">
-      <Header isLogged={true} />
+      <Header isLogged={true} isMoviePlayer={false} />
       <main>
         {showGpt ? (
           <GPTSearchBar />
