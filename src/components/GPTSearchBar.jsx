@@ -7,8 +7,8 @@ import { GPT_SEARCH_URL } from '../utils/url'
 const GPTSearchBar = () => {
 
     return (
-        <div className='bg-black'>
-            <div className="fixed w-screen h-screen z-0">
+        <div >
+            <div className="fixed bg-black w-screen h-screen z-0">
                 <img className="w-screen h-full object-cover bg-center " src={GPT_SEARCH_URL}/>
             </div>
             <div>

@@ -5,45 +5,51 @@ import lang from "../utils/languageConstants";
 import { API_OPTIONS, GPT_API } from "../utils/url";
 import { addGPTSearch } from "../utils/gptSlice";
 const SearchBar = () => {
-  const dispatch=useDispatch()
-  const [errMessage, setErrorMessage] = useState('');
+  const dispatch = useDispatch();
+  const [errMessage, setErrorMessage] = useState("");
   const language = useSelector((state) => state?.lang?.language);
   const text = useRef(null);
   const handleSubmit = (e) => {
     e.preventDefault();
   };
-  const searchMovieInDB=async(movieName)=>{
-const data=await fetch(`https://api.themoviedb.org/3/search/movie?query=${movieName}&include_adult=false&language=en-US&page=1`, API_OPTIONS)
-const json=await data.json()
-return json.results
-  }
+  const searchMovieInDB = async (movieName) => {
+    const data = await fetch(
+      `https://api.themoviedb.org/3/search/movie?query=${movieName}&include_adult=false&language=en-US&page=1`,
+      API_OPTIONS
+    );
+    const json = await data.json();
+    return json.results;
+  };
   const handleGPTSearchClick = async () => {
-     const data = await fetch(GPT_API, {
-  method: 'POST', 
-  headers: {
-    'Content-Type': 'application/json',
-    
-  },
-  body: JSON.stringify({
-    searchText:text.current.value
-  })
-})
+    const data = await fetch(GPT_API, {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+      },
+      body: JSON.stringify({
+        searchText: text.current.value,
+      }),
+    });
 
-    const dispatchResults=await data.json()
-   console.log(dispatchResults) 
-    if(!dispatchResults?.movies){
-      setErrorMessage(dispatchResults?.error)
+    const dispatchResults = await data.json();
+    console.log(dispatchResults);
+    if (!dispatchResults?.movies) {
+      setErrorMessage(dispatchResults?.error);
     }
     //For Each movie Search TMDB
-const resolvedData = dispatchResults?.movies?.map(movie =>
-  searchMovieInDB(movie)
-)
+    const resolvedData = dispatchResults?.movies?.map((movie) =>
+      searchMovieInDB(movie)
+    );
 
-   // data is array of promises
- const tmdbResults=await Promise.all(resolvedData)
- console.log(tmdbResults)
- dispatch(addGPTSearch({movieNames:dispatchResults?.movies,tmdbResults:tmdbResults}))
-
+    // data is array of promises
+    const tmdbResults = await Promise.all(resolvedData);
+    console.log(tmdbResults);
+    dispatch(
+      addGPTSearch({
+        movieNames: dispatchResults?.movies,
+        tmdbResults: tmdbResults,
+      })
+    );
   };
   return (
     <div className="relative text-center pt-44 sm:pt-24 md:pt-24  justify-center z-10 ">

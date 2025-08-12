@@ -2,7 +2,7 @@ import React, { useEffect } from "react";
 import { LOGO_URL, PROFILE_URL } from "../utils/url";
 import { getAuth, signOut, onAuthStateChanged } from "firebase/auth"; // ✅ merged into one import
 import { Link, useNavigate } from "react-router";
-import { useDispatch, useSelector } from "react-redux"; // ✅ added this
+import { useDispatch, useSelector } from "react-redux"; 
 import { addUser, removeUser } from "../utils/userSlice";
 import { auth } from "../utils/firebase";
 import { toggleGPTSearchView } from "../utils/gptSlice";
@@ -11,7 +11,7 @@ import { updateLanguage } from "../utils/languageSlice";
 
 const Header = ({ isLogged }) => {
   const navigate = useNavigate();
-  const dispatch = useDispatch(); // ✅ added this
+  const dispatch = useDispatch(); 
   const showGpt = useSelector((state) => state?.gpt?.showGptSearch);
   const language=useSelector(state=>state?.lang?.language)
   const handleSignout = () => {

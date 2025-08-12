@@ -13,7 +13,7 @@ const Body = () => {
     path:"/browse",
     element:<Browse/>
 },{
-  path:"/movie:movieId",
+  path:"/movie/:movieId",
   element:<MoviePlayer/>
 }])
 

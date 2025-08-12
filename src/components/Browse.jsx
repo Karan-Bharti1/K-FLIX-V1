@@ -11,7 +11,7 @@ import useTopRated from "../hooks/useTopRated";
 import useUpcoming from "../hooks/useUpcoming";
 
 const Browse = () => {
-  useNowPlaying()
+useNowPlaying()
 usePopular()
 useTopRated()
 useUpcoming()

@@ -7,7 +7,8 @@ initialState:{
     trailerVideo:null,
     popular:null,
     topRated:null,
-    upcoming:null
+    upcoming:null,
+    currentTrailer:null
 },
 reducers:{
     addNowPlayingMovies:(state,actions)=>{
@@ -25,8 +26,11 @@ reducers:{
     },
     addUpcoming:(state,action)=>{
         state.upcoming=action.payload
+    },
+    addMoviePlayer:(state,action)=>{
+state.currentTrailer=action.payload
     }
 }
 })
-export const {addNowPlayingMovies,addTrailerVideo,addPopular,addTopRated,addUpcoming}=movieSlice.actions
+export const {addMoviePlayer,addNowPlayingMovies,addTrailerVideo,addPopular,addTopRated,addUpcoming}=movieSlice.actions
 export default movieSlice.reducer
