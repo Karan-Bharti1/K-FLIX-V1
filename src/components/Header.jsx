@@ -8,6 +8,7 @@ import { auth } from "../utils/firebase";
 import { toggleGPTSearchView } from "../utils/gptSlice";
 import lang, { SUPPORTED_LANGUAGES } from "../utils/languageConstants";
 import { updateLanguage } from "../utils/languageSlice";
+import { addCurrentMovie } from "../utils/movieSlice";
 
 const Header = ({ isLogged, isMoviePlayer, movieId }) => {
   const navigate = useNavigate();
@@ -73,6 +74,7 @@ const Header = ({ isLogged, isMoviePlayer, movieId }) => {
               {!showGpt ? lang[language].gptSearch : lang[language].browse}
             </button>
           )}
+      { isMoviePlayer &&   <Link onClick={()=>dispatch(addCurrentMovie(null))} to="/browse" className="rounded-lg bg-red-500/50 my-1 mx-1 p-[5px]  sm:my-4 sm:mx-2  sm:p-2  md:my-4 md:mx-2 py-0 md:p-2   font-semibold cursor-pointer">Browse</Link>}
           <button
             className="font-medium rounded-lg bg-red-500/50 my-1 mx-1 p-[5px] sm:my-4 sm:mx-2  sm:p-2  md:my-4 md:mx-2 py-0 md:p-2 sm:font-semibold  md:font-semibold cursor-pointer"
             onClick={handleSignout}

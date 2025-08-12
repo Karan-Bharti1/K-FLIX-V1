@@ -47,7 +47,7 @@ const MoviePlayer = () => {
             ></iframe>
             <button
               onClick={() => setPlay(false)}
-              className="absolute -top-12 right-0 text-white text-4xl hover:text-red-500 transition-colors"
+              className="absolute -top-12 right-0 text-white text-4xl hover:text-red-500 transition-colors cursor-pointer"
             >
               ✕
             </button>
