@@ -80,14 +80,14 @@ K-FLIX GPT blends the sleek Netflix experience with intelligent AI recommendatio
 **Data:** TMDB API  
 **AI:** OpenAI (GPT)  
 **Backend (optional):** Node.js + Express (OpenAI proxy)  
-**Build/Deploy:** Firebase Hosting / Vercel / Netlify
+**Build/Deploy:**  Vercel 
 
 ---
 ## 🛠 Tech Stack
 - **Frontend:** React + Tailwind CSS
 - **AI Engine:** GPT API for intelligent recommendations
-- **Backend:** TMDB + Firebase
-- **Database:** MongoDB
+- **Backend:** TMDB + Firebase + Node + Express + CORS
+
 
 ---
 
