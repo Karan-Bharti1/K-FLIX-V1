@@ -95,11 +95,20 @@ const status=useOnline()
 
             {!play && (
               <button
-                onClick={() => setPlay(true)}
-                className="mt-6 px-6 py-3 bg-red-600 hover:bg-red-700 rounded-full font-semibold text-lg flex items-center gap-2 shadow-lg transition-all duration-300 cursor-pointer"
-              >
-                ▶ Play Trailer
-              </button>
+  onClick={() => setPlay(true)}
+  className="
+    mt-4 px-4 py-2 text-base         /* Mobile default */
+    md:mt-5 md:px-5 md:py-2.5 md:text-lg /* Tablet */
+    lg:mt-6 lg:px-6 lg:py-3 lg:text-xl  /* Desktop */
+    bg-red-500/50 hover:bg-red-700
+    rounded-full font-semibold
+    flex items-center gap-2
+    shadow-lg transition-all duration-300 cursor-pointer
+  "
+>
+  ▶ Play Trailer
+</button>
+
             )}
           </div>
         </div>
