@@ -8,10 +8,12 @@
 ---
 >**Test Login Credentials**
 
-Test User: kflix@gmail.com
-Test Password: Kflix@123
+- Test User: kflix@gmail.com
+- Test Password: Kflix@123
 
-
+---
+>**DEMO URL**
+>[K-FLIX](https://drive.google.com/file/d/1rgIC1_ZxMZLoMfs5AO7McbLomVtY2Rjn/view?usp=sharing)
 ---
 ## ✨ Why K-FLIX GPT?
 Because scrolling endlessly is *so* 2020.  
