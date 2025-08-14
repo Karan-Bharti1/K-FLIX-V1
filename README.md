@@ -6,7 +6,13 @@
 > Movies, shows & recommendations… now with the power of AI.
 
 ---
+>**Test Login Credentials**
 
+Test User: kflix@gmail.com
+Test Password: Kflix@123
+
+
+---
 ## ✨ Why K-FLIX GPT?
 Because scrolling endlessly is *so* 2020.  
 K-FLIX GPT blends the sleek Netflix experience with intelligent AI recommendations — powered by GPT — to help you discover the *perfect* title, every time.
