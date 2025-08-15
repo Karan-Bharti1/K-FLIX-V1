@@ -107,6 +107,9 @@ Try searching for _"A mind-bending sci-fi with a twist ending"_ and watch K-FLIX
 > **Note:** This project is for educational & portfolio purposes only.  
 > All rights to content, branding, and trademarks belong to their respective owners.
 
+## GPT Access Integration 
+[GPT](https://github.com/Karan-Bharti1/GPT-Integration-Access)
+
 
 ## Author
 
